@@ -5,27 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>saturn | unblocked games</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <style>
-
-
 /* saturn - unblocked games website */
-/* base styles */
+/* enhanced base styles */
 
 :root {
+  /* Enhanced color palette with richer browns */
   --background: #121212;
-  --primary: #8b5a2b;
-  --secondary: #a67c52;
+  --background-alt: #1a1a1a;
+  --primary: #9b6a3d;
+  --primary-light: #b58150;
+  --primary-dark: #7d542f;
+  --secondary: #c49a6c;
+  --accent: #e3b587;
   --text: #f5f5f5;
+  --text-muted: #aaaaaa;
   --subtle: #2a2a2a;
   --border: #333333;
-  --radius: 8px;
-  --transition: all 0.3s ease;
+  --card-bg: #1e1e1e;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode {
+  --background: #f5f5f5;
+  --background-alt: #e9e9e9;
+  --primary: #9b6a3d;
+  --primary-light: #b58150;
+  --primary-dark: #7d542f;
+  --secondary: #c49a6c;
+  --accent: #e3b587;
+  --text: #333333;
+  --text-muted: #666666;
+  --subtle: #e0e0e0;
+  --border: #cccccc;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -35,11 +61,31 @@
 }
 
 body {
-  font-family: 'montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--background);
   color: var(--text);
   line-height: 1.6;
   text-transform: lowercase;
+  transition: background-color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 a {
@@ -55,7 +101,7 @@ a:hover {
 /* container */
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -63,7 +109,13 @@ a:hover {
 /* header */
 header {
   padding: 20px 0;
-  border-bottom: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--background);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header-inner {
@@ -73,26 +125,45 @@ header {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--primary);
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
 }
 
 .logo span {
   color: var(--secondary);
 }
 
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 3px;
+  background-color: var(--accent);
+  transition: var(--transition);
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
 /* navigation */
 nav ul {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 40px;
 }
 
 nav ul li a {
   font-weight: 500;
   padding: 8px 0;
   position: relative;
+  letter-spacing: 0.5px;
 }
 
 nav ul li a::after {
@@ -106,72 +177,116 @@ nav ul li a::after {
   transition: var(--transition);
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
+}
+
+nav ul li a.active {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* hero section */
 .hero {
-  padding: 80px 0;
+  padding: 100px 0 80px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(155, 106, 61, 0.15), transparent 70%),
+              radial-gradient(circle at bottom left, rgba(155, 106, 61, 0.1), transparent 70%);
+  z-index: -1;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  color: #aaaaaa;
+  font-size: 1.3rem;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
 .search-bar {
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
   position: relative;
 }
 
 .search-bar input {
   width: 100%;
-  padding: 15px 20px;
+  padding: 18px 25px;
   border-radius: var(--radius);
-  border: 1px solid var(--subtle);
-  background-color: var(--subtle);
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .search-bar input:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(155, 106, 61, 0.2);
 }
 
 .search-bar button {
   position: absolute;
-  right: 10px;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--primary);
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  transition: var(--transition);
+}
+
+.search-bar button:hover {
+  color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* featured games */
 .featured {
-  padding: 60px 0;
+  padding: 80px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .section-title {
-  font-size: 1.8rem;
-  margin-bottom: 40px;
+  font-size: 2rem;
   position: relative;
   display: inline-block;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .section-title::after {
@@ -184,30 +299,47 @@ nav ul li a:hover::after {
   background-color: var(--primary);
 }
 
+.view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.view-all:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
 }
 
 .game-card {
-  background-color: var(--subtle);
+  background-color: var(--card-bg);
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  position: relative;
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border-color: var(--primary);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-light);
 }
 
 .game-image {
   width: 100%;
-  height: 150px;
-  background-color: #333;
+  height: 180px;
+  background-color: var(--subtle);
   position: relative;
   overflow: hidden;
 }
@@ -223,160 +355,701 @@ nav ul li a:hover::after {
   transform: scale(1.05);
 }
 
+.game-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
 .game-info {
-  padding: 20px;
+  padding: 25px;
 }
 
 .game-info h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.game-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.star {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.rating-count {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-left: 5px;
 }
 
 .game-info p {
-  color: #aaaaaa;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  line-height: 1.5;
 }
 
 .game-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 15px;
 }
 
 .tag {
-  background-color: rgba(139, 90, 43, 0.2);
+  background-color: rgba(155, 106, 61, 0.15);
   color: var(--primary);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.game-card:hover .tag {
+  background-color: rgba(155, 106, 61, 0.25);
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.stat i {
+  color: var(--primary);
 }
 
 /* categories */
 .categories {
-  padding: 60px 0;
+  padding: 80px 0;
+  background-color: var(--background-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+.categories::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(155, 106, 61, 0.1), transparent 70%);
+  z-index: 0;
 }
 
 .category-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .category-item {
-  background-color: var(--subtle);
+  background-color: var(--card-bg);
   border-radius: var(--radius);
-  padding: 15px 25px;
+  padding: 18px 30px;
   transition: var(--transition);
   border: 1px solid var(--border);
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-item i {
+  color: var(--primary);
+  font-size: 1.2rem;
+  transition: var(--transition);
 }
 
 .category-item:hover {
-  background-color: var(--primary);
-  transform: translateY(-3px);
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+}
+
+.category-item:hover i {
+  color: white;
+  transform: scale(1.2);
+}
+
+.category-item.active {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  border-color: transparent;
+}
+
+.category-item.active i {
+  color: white;
+}
+
+/* trending section */
+.trending {
+  padding: 80px 0;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 25px;
+}
+
+.trending-main {
+  grid-column: span 6;
+  height: 400px;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.trending-secondary {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+}
+
+.trending-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.trending-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.trending-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trending-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.trending-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.trending-main .trending-title {
+  font-size: 1.8rem;
+}
+
+.trending-meta {
+  display: flex;
+  gap: 15px;
+}
+
+.trending-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.trending-meta-item i {
+  color: var(--primary);
+}
+
+.trending-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* call to action */
 .cta {
-  padding: 80px 0;
+  padding: 100px 0;
   text-align: center;
-  background-color: rgba(139, 90, 43, 0.1);
+  background-color: var(--background-alt);
   border-radius: var(--radius);
-  margin: 40px 0;
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(155, 106, 61, 0.15), transparent 70%);
+  z-index: 0;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
 }
 
 .cta h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .cta p {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  color: #aaaaaa;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 .btn {
   display: inline-block;
-  background-color: var(--primary);
-  color: var(--text);
-  padding: 12px 30px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  padding: 15px 35px;
   border-radius: var(--radius);
-  font-weight: 500;
+  font-weight: 600;
   transition: var(--transition);
   border: none;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.5px;
 }
 
 .btn:hover {
-  background-color: var(--secondary);
-  color: var(--text);
+  background: linear-gradient(to right, var(--primary-dark), var(--primary));
+  color: white;
   transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* recently added section */
+.recently-added {
+  padding: 80px 0;
 }
 
 /* footer */
 footer {
-  padding: 40px 0;
-  border-top: 1px solid var(--subtle);
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--border);
+  background-color: var(--background-alt);
 }
 
-.footer-inner {
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.social-icon i {
+  color: var(--text);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.social-icon:hover i {
+  color: white;
+}
+
+.footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-links ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
 }
 
 .copyright {
-  color: #777;
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    gap: 20px;
+.footer-bottom-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-bottom-links a:hover {
+  color: var(--primary);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .trending-grid {
+    grid-template-columns: 1fr;
   }
   
+  .trending-main {
+    grid-column: span 1;
+    height: 350px;
+  }
+  
+  .trending-secondary {
+    grid-column: span 1;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
   nav ul {
-    gap: 15px;
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .header-inner {
+    justify-content: space-between;
+  }
+  
+  .hero {
+    padding: 60px 0;
   }
   
   .hero h1 {
     font-size: 2.5rem;
   }
   
-  .footer-inner {
+  .trending-secondary {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-bottom {
     flex-direction: column;
+    gap: 20px;
     text-align: center;
+  }
+  
+  .footer-bottom-links {
+    justify-content: center;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .hero h1 {
     font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
   }
   
   .games-grid {
     grid-template-columns: 1fr;
   }
   
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .cta {
+    padding: 60px 0;
+  }
+  
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+  
+  .theme-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
   }
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Glass morphism elements */
+.glass {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Floating action button */
+.fab {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+}
+
+.fab i {
+  color: white;
+  font-size: 1.3rem;
+}
 </style>
 
     <!-- header -->
@@ -386,24 +1059,121 @@ footer {
                 <a href="index.html" class="logo">saturn<span>.</span></a>
                 <nav>
                     <ul>
-                        <li><a href="index.html">home</a></li>
+                        <li><a href="index.html" class="active">home</a></li>
                         <li><a href="games.html">games</a></li>
                         <li><a href="#">categories</a></li>
                         <li><a href="#">about</a></li>
                     </ul>
                 </nav>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="#">categories</a></li>
+            <li><a href="#">about</a></li>
+        </ul>
+    </div>
+
     <!-- hero section -->
     <section class="hero">
         <div class="container">
-            <h1>play unblocked games</h1>
-            <p>access hundreds of free games without restrictions. enjoy your favorite titles anytime, anywhere.</p>
-            <div class="search-bar">
+            <h1 class="fade-in">play unblocked games</h1>
+            <p class="fade-in delay-1">access hundreds of free games without restrictions. enjoy your favorite titles anytime, anywhere.</p>
+            <div class="search-bar fade-in delay-2">
                 <input type="text" placeholder="search for games...">
                 <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- trending section -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">trending now</h2>
+                <a href="games.html" class="view-all">view all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-main">
+                    <span class="trending-badge">most played</span>
+                    <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Tetris" class="trending-image">
+                    <div class="trending-overlay">
+                        <h3 class="trending-title">tetris master</h3>
+                        <div class="trending-meta">
+                            <div class="trending-meta-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>3.8M plays</span>
+                            </div>
+                            <div class="trending-meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.9 rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-secondary">
+                    <div class="trending-item">
+                        <span class="trending-badge">new</span>
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Among Us" class="trending-image">
+                        <div class="trending-overlay">
+                            <h3 class="trending-title">among us</h3>
+                            <div class="trending-meta">
+                                <div class="trending-meta-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>1.9M plays</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Minecraft Classic" class="trending-image">
+                        <div class="trending-overlay">
+                            <h3 class="trending-title">minecraft classic</h3>
+                            <div class="trending-meta">
+                                <div class="trending-meta-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>4.2M plays</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Flappy Bird" class="trending-image">
+                        <div class="trending-overlay">
+                            <h3 class="trending-title">flappy bird</h3>
+                            <div class="trending-meta">
+                                <div class="trending-meta-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>5.7M plays</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <span class="trending-badge">popular</span>
+                        <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Geometry Dash" class="trending-image">
+                        <div class="trending-overlay">
+                            <h3 class="trending-title">geometry dash</h3>
+                            <div class="trending-meta">
+                                <div class="trending-meta-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>980K plays</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -411,19 +1181,35 @@ footer {
     <!-- featured games -->
     <section class="featured">
         <div class="container">
-            <h2 class="section-title">featured games</h2>
+            <div class="section-header">
+                <h2 class="section-title">featured games</h2>
+                <a href="games.html" class="view-all">view all <i class="fas fa-arrow-right"></i></a>
+            </div>
             <div class="games-grid">
                 <!-- game 1 -->
                 <div class="game-card">
                     <div class="game-image">
+                        <div class="game-badge">trending</div>
                         <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="2048 Game">
                     </div>
                     <div class="game-info">
                         <h3>2048</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star-half-alt star"></i>
+                            <span class="rating-count">(2.4k)</span>
+                        </div>
                         <p>combine the numbers and get to the 2048 tile!</p>
                         <div class="game-tags">
                             <span class="tag">puzzle</span>
                             <span class="tag">strategy</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 1.2M plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2023</div>
                         </div>
                     </div>
                 </div>
@@ -435,10 +1221,22 @@ footer {
                     </div>
                     <div class="game-info">
                         <h3>geometry dash</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                            <span class="rating-count">(1.8k)</span>
+                        </div>
                         <p>jump and fly your way through danger in this rhythm-based action platformer.</p>
                         <div class="game-tags">
                             <span class="tag">arcade</span>
                             <span class="tag">rhythm</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 980K plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2022</div>
                         </div>
                     </div>
                 </div>
@@ -450,10 +1248,22 @@ footer {
                     </div>
                     <div class="game-info">
                         <h3>snake</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star-half-alt star"></i>
+                            <i class="far fa-star star"></i>
+                            <span class="rating-count">(3.1k)</span>
+                        </div>
                         <p>control a snake to eat apples and grow without hitting walls or yourself.</p>
                         <div class="game-tags">
                             <span class="tag">classic</span>
                             <span class="tag">arcade</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 2.5M plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2021</div>
                         </div>
                     </div>
                 </div>
@@ -461,14 +1271,27 @@ footer {
                 <!-- game 4 -->
                 <div class="game-card">
                     <div class="game-image">
+                        <div class="game-badge">popular</div>
                         <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tetris">
                     </div>
                     <div class="game-info">
                         <h3>tetris</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <span class="rating-count">(4.7k)</span>
+                        </div>
                         <p>arrange falling blocks to create complete lines and score points.</p>
                         <div class="game-tags">
                             <span class="tag">classic</span>
                             <span class="tag">puzzle</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 3.8M plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2020</div>
                         </div>
                     </div>
                 </div>
@@ -479,16 +1302,146 @@ footer {
     <!-- categories section -->
     <section class="categories">
         <div class="container">
-            <h2 class="section-title">browse by category</h2>
+            <div class="section-header">
+                <h2 class="section-title">browse by category</h2>
+                <a href="games.html" class="view-all">view all <i class="fas fa-arrow-right"></i></a>
+            </div>
             <div class="category-list">
-                <div class="category-item">arcade</div>
-                <div class="category-item">puzzle</div>
-                <div class="category-item">strategy</div>
-                <div class="category-item">action</div>
-                <div class="category-item">adventure</div>
-                <div class="category-item">racing</div>
-                <div class="category-item">sports</div>
-                <div class="category-item">multiplayer</div>
+                <div class="category-item"><i class="fas fa-gamepad"></i> arcade</div>
+                <div class="category-item"><i class="fas fa-puzzle-piece"></i> puzzle</div>
+                <div class="category-item"><i class="fas fa-chess"></i> strategy</div>
+                <div class="category-item"><i class="fas fa-running"></i> action</div>
+                <div class="category-item"><i class="fas fa-mountain"></i> adventure</div>
+                <div class="category-item"><i class="fas fa-car"></i> racing</div>
+                <div class="category-item"><i class="fas fa-football-ball"></i> sports</div>
+                <div class="category-item"><i class="fas fa-users"></i> multiplayer</div>
+                <div class="category-item"><i class="fas fa-ghost"></i> horror</div>
+                <div class="category-item"><i class="fas fa-hat-wizard"></i> rpg</div>
+                <div class="category-item"><i class="fas fa-fighter-jet"></i> shooter</div>
+                <div class="category-item"><i class="fas fa-brain"></i> educational</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- recently added section -->
+    <section class="recently-added">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">recently added</h2>
+                <a href="games.html" class="view-all">view all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="games-grid">
+                <!-- Recent Game 1 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-badge">new</div>
+                        <img src="https://images.unsplash.com/photo-1614294149010-950b698f72c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fall Guys">
+                    </div>
+                    <div class="game-info">
+                        <h3>fall guys</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star-half-alt star"></i>
+                            <span class="rating-count">(1.2k)</span>
+                        </div>
+                        <p>compete in crazy obstacle courses against other players in this colorful battle royale.</p>
+                        <div class="game-tags">
+                            <span class="tag">multiplayer</span>
+                            <span class="tag">battle royale</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 850K plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Game 2 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-badge">new</div>
+                        <img src="https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Rocket League">
+                    </div>
+                    <div class="game-info">
+                        <h3>rocket soccer</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                            <span class="rating-count">(780)</span>
+                        </div>
+                        <p>play soccer with rocket-powered cars in this high-octane sports game.</p>
+                        <div class="game-tags">
+                            <span class="tag">sports</span>
+                            <span class="tag">racing</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 620K plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Game 3 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-badge">new</div>
+                        <img src="https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chess">
+                    </div>
+                    <div class="game-info">
+                        <h3>chess master</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <span class="rating-count">(450)</span>
+                        </div>
+                        <p>play the classic game of chess against AI or other players online.</p>
+                        <div class="game-tags">
+                            <span class="tag">board</span>
+                            <span class="tag">strategy</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 320K plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Game 4 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-badge">new</div>
+                        <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tower Defense">
+                    </div>
+                    <div class="game-info">
+                        <h3>tower defense: aliens</h3>
+                        <div class="game-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star-half-alt star"></i>
+                            <span class="rating-count">(290)</span>
+                        </div>
+                        <p>defend your base against waves of alien invaders by strategically placing towers.</p>
+                        <div class="game-tags">
+                            <span class="tag">strategy</span>
+                            <span class="tag">tower defense</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat"><i class="fas fa-gamepad"></i> 180K plays</div>
+                            <div class="stat"><i class="fas fa-calendar-alt"></i> 2025</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -496,97 +1449,227 @@ footer {
     <!-- call to action -->
     <section class="cta">
         <div class="container">
-            <h2>can't find your game?</h2>
-            <p>we're constantly adding new games to our collection. if you can't find what you're looking for, let us know!</p>
-            <a href="#" class="btn">request a game</a>
+            <div class="cta-content">
+                <h2>want to play on the go?</h2>
+                <p>bookmark saturn on your mobile device for quick access to all your favorite games, anytime and anywhere.</p>
+                <a href="#" class="btn">add to home screen</a>
+            </div>
         </div>
     </section>
 
     <!-- footer -->
     <footer>
         <div class="container">
-            <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>about saturn</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Saturn is your go-to destination for free unblocked games. Play anywhere, anytime without restrictions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>quick links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="games.html">all games</a></li>
+                        <li><a href="#">top rated</a></li>
+                        <li><a href="#">new releases</a></li>
+                        <li><a href="#">trending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">arcade</a></li>
+                        <li><a href="#">puzzle</a></li>
+                        <li><a href="#">strategy</a></li>
+                        <li><a href="#">action</a></li>
+                        <li><a href="#">multiplayer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">help center</a></li>
+                        <li><a href="#">contact us</a></li>
+                        <li><a href="#">request a game</a></li>
+                        <li><a href="#">report an issue</a></li>
+                        <li><a href="#">faq</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <div class="copyright">
                     &copy; 2025 saturn. all rights reserved.
                 </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">terms of service</a></li>
-                        <li><a href="#">contact</a></li>
-                    </ul>
-                </div>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="#">terms of service</a></li>
+                    <li><a href="#">cookies</a></li>
+                </ul>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    
-    <script>
-    
-    
-// saturn - unblocked games website
+    <!-- Theme toggle button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Search functionality
-    const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
-    
-    if (searchButton && searchInput) {
-        searchButton.addEventListener('click', function() {
-            performSearch(searchInput.value);
-        });
+    <!-- Back to top button -->
+    <div class="fab" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+    // saturn - unblocked games website - enhanced version
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
         
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch(searchInput.value);
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('saturnTheme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('saturnTheme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('saturnTheme', 'dark');
             }
         });
-    }
-    
-    // Category selection
-    const categoryItems = document.querySelectorAll('.category-item');
-    
-    categoryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const category = this.textContent.trim();
-            // In a real implementation, this would filter games or navigate to category page
-            console.log(`Category selected: ${category}`);
-            alert(`Games in category "${category}" will be shown in the full version.`);
+        
+        // Mobile menu
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
         });
-    });
-    
-    // Game card hover effects enhancement
-    const gameCards = document.querySelectorAll('.game-card');
-    
-    gameCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const gameTitle = this.querySelector('h3').textContent;
-            // In a real implementation, this would navigate to the game page
-            console.log(`Game selected: ${gameTitle}`);
-            alert(`${gameTitle} will be available in the full version.`);
+        
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
         });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-bar input');
+        const searchButton = document.querySelector('.search-bar button');
+        
+        if (searchButton && searchInput) {
+            searchButton.addEventListener('click', function() {
+                performSearch(searchInput.value);
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch(searchInput.value);
+                }
+            });
+        }
+        
+        // Category selection
+        const categoryItems = document.querySelectorAll('.category-item');
+        
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                categoryItems.forEach(cat => cat.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                const category = this.textContent.trim().replace(/^[\w\s]+\s/, ''); // Remove icon text
+                // In a real implementation, this would filter games or navigate to category page
+                console.log(`Category selected: ${category}`);
+                window.location.href = `games.html?category=${category}`;
+            });
+        });
+        
+        // Game card hover effects enhancement
+        const gameCards = document.querySelectorAll('.game-card');
+        
+        gameCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const gameTitle = this.querySelector('h3').textContent;
+                // In a real implementation, this would navigate to the game page
+                console.log(`Game selected: ${gameTitle}`);
+                window.location.href = `games.html?game=${gameTitle}`;
+            });
+        });
+        
+        // Trending items click
+        const trendingItems = document.querySelectorAll('.trending-item, .trending-main');
+        
+        trendingItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const gameTitle = this.querySelector('.trending-title').textContent;
+                // In a real implementation, this would navigate to the game page
+                console.log(`Trending game selected: ${gameTitle}`);
+                window.location.href = `games.html?game=${gameTitle}`;
+            });
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.section-title, .game-card, .category-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on page load
     });
-});
 
-// Search function
-function performSearch(query) {
-    if (query.trim() === '') {
-        alert('Please enter a game to search for.');
-        return;
+    // Search function
+    function performSearch(query) {
+        if (query.trim() === '') {
+            alert('Please enter a game to search for.');
+            return;
+        }
+        
+        // In a real implementation, this would search the games database
+        console.log(`Searching for: ${query}`);
+        window.location.href = `games.html?search=${query}`;
     }
-    
-    // In a real implementation, this would search the games database
-    console.log(`Searching for: ${query}`);
-    alert(`Search results for "${query}" will be shown in the full version.`);
-}
-
-// Function to toggle dark/light mode (for future implementation)
-function toggleDarkMode() {
-    document.body.classList.toggle('light-mode');
-}
-
-</script>
-
+    </script>
 </body>
 </html>
