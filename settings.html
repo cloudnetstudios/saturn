@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settings - saturn</title>
+    
+    <style>
+    
+    /* Saturn Unblocked Games Website - Main Stylesheet */
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* CSS Variables for theming */
+:root {
+  /* Default theme (Dark) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #252525;
+  --accent-primary: #D2B48C; /* Tan */
+  --accent-secondary: #E6C9A8; /* Lighter Tan */
+  --accent-tertiary: #C8AD7F; /* Darker Tan */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #b0b0b0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s ease;
+}
+
+/* Theme Variations */
+.school-mode {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #e9e9e9;
+  --bg-tertiary: #dedede;
+  --accent-primary: #4285F4; /* Google Blue */
+  --accent-secondary: #34A853; /* Google Green */
+  --accent-tertiary: #FBBC05; /* Google Yellow */
+  --text-primary: #202124;
+  --text-secondary: #3c4043;
+  --text-tertiary: #5f6368;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hacker-mode {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #151515;
+  --accent-primary: #00FF00; /* Matrix Green */
+  --accent-secondary: #33FF33;
+  --accent-tertiary: #66FF66;
+  --text-primary: #00FF00;
+  --text-secondary: #00DD00;
+  --text-tertiary: #00BB00;
+  --shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+}
+
+.pink-mode {
+  --bg-primary: #1a0a14;
+  --bg-secondary: #2d1324;
+  --bg-tertiary: #3d1a30;
+  --accent-primary: #FF69B4; /* Hot Pink */
+  --accent-secondary: #FF8CC6;
+  --accent-tertiary: #FFADD8;
+  --text-primary: #ffffff;
+  --text-secondary: #FFCCE5;
+  --text-tertiary: #FF99C8;
+  --shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.blue-mode {
+  --bg-primary: #0a1a2c;
+  --bg-secondary: #0e2439;
+  --bg-tertiary: #132f4c;
+  --accent-primary: #1E90FF; /* Dodger Blue */
+  --accent-secondary: #5CB3FF;
+  --accent-tertiary: #99CCFF;
+  --text-primary: #ffffff;
+  --text-secondary: #CCDFFF;
+  --text-tertiary: #99BBFF;
+  --shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: var(--transition);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button, .btn {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* Layout Components */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+/* Header and Navigation */
+header {
+  background-color: var(--bg-secondary);
+  padding: 15px 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+/* Card Components */
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 15px;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Form Elements */
+input, select, textarea {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--accent-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 10px 15px;
+  color: var(--text-primary);
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-tertiary);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--text-primary);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-secondary);
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.copyright {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.pulse {
+  animation: pulse 3s infinite;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mt-3 { margin-top: 30px; }
+.mb-1 { margin-bottom: 10px; }
+.mb-2 { margin-bottom: 20px; }
+.mb-3 { margin-bottom: 30px; }
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-menu-toggle span {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    z-index: 99;
+  }
+  
+  .nav-links.active {
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-img {
+    height: 150px;
+  }
+}
+
+</style>
+    <style>
+        /* Make everything lowercase */
+        * {
+            text-transform: lowercase;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Settings page specific styles */
+        .settings-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-primary) 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+        }
+        
+        .settings-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .settings-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .settings-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .settings-sidebar {
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .settings-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .settings-nav-item {
+            padding: 12px 15px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .settings-nav-item:hover, .settings-nav-item.active {
+            background-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+        
+        .settings-nav-icon {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .settings-content {
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .settings-section {
+            display: none;
+        }
+        
+        .settings-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .settings-section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .settings-option {
+            margin-bottom: 30px;
+            animation: slideUp 0.3s ease;
+        }
+        
+        .settings-option-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .settings-option-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .theme-option {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+        }
+        
+        .theme-option.active {
+            border-color: var(--accent-primary);
+        }
+        
+        .theme-preview {
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .theme-preview-header {
+            height: 20px;
+            background-color: #1e1e1e;
+        }
+        
+        .theme-preview-body {
+            flex-grow: 1;
+            background-color: #121212;
+        }
+        
+        .theme-preview.dark .theme-preview-header {
+            background-color: #1e1e1e;
+        }
+        
+        .theme-preview.dark .theme-preview-body {
+            background-color: #121212;
+        }
+        
+        .theme-preview.school .theme-preview-header {
+            background-color: #e9e9e9;
+        }
+        
+        .theme-preview.school .theme-preview-body {
+            background-color: #f5f5f5;
+        }
+        
+        .theme-name {
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background-color: var(--bg-tertiary);
+        }
+        
+        .theme-check {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: var(--accent-primary);
+            color: var(--text-primary);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .theme-option.active .theme-check {
+            opacity: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--bg-tertiary);
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-primary);
+            outline: none;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .history-item {
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            background-color: var(--bg-tertiary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .history-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .history-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .history-item-meta {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+        
+        .history-item-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .history-item-action {
+            background-color: transparent;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 5px;
+        }
+        
+        .history-item-action:hover {
+            color: var(--accent-primary);
+        }
+        
+        .empty-history {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-tertiary);
+        }
+        
+        .incognito-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .incognito-icon {
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
+        }
+        
+        .incognito-active .incognito-icon {
+            color: var(--accent-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .settings-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .settings-sidebar {
+                margin-bottom: 20px;
+            }
+            
+            .settings-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .settings-nav-item {
+                flex: 1 1 auto;
+                text-align: center;
+                min-width: 100px;
+            }
+            
+            .theme-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="https://logo-icons.com/cdn/shop/files/1126-logo-1713386413.986.svg?v=1713403311" alt="Saturn" style="height: 24px; margin-right: 8px;">
+                <span class="site-name">saturn</span>
+            </a>
+            
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="games.html" class="nav-link">Games</a>
+                <a href="apps.html" class="nav-link">Apps</a>
+                <a href="search.html" class="nav-link">Search</a>
+                <a href="settings.html" class="nav-link active">Settings</a>
+                <a href="account.html" class="nav-link">Account</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Settings Header -->
+            <section class="settings-header">
+                <h1 class="settings-title" data-animation="fade-in">Settings</h1>
+                <p class="settings-description" data-animation="slide-up" data-delay="0.3">
+                    Customize your experience and manage your preferences
+                </p>
+            </section>
+            
+            <!-- Settings Container -->
+            <section class="settings-container">
+                <!-- Settings Sidebar -->
+                <div class="settings-sidebar">
+                    <nav class="settings-nav">
+                        <div class="settings-nav-item active" data-section="appearance">
+                            <span class="settings-nav-icon"><i class="fas fa-palette"></i></span>
+                            <span>Appearance</span>
+                        </div>
+                        <div class="settings-nav-item" data-section="privacy">
+                            <span class="settings-nav-icon"><i class="fas fa-user-secret"></i></span>
+                            <span>Privacy</span>
+                        </div>
+                        <div class="settings-nav-item" data-section="history">
+                            <span class="settings-nav-icon"><i class="fas fa-history"></i></span>
+                            <span>History</span>
+                        </div>
+                        <div class="settings-nav-item" data-section="about">
+                            <span class="settings-nav-icon"><i class="fas fa-info-circle"></i></span>
+                            <span>About</span>
+                        </div>
+                    </nav>
+                </div>
+                
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- Appearance Section -->
+                    <div class="settings-section active" id="appearance-section">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-palette"></i> Appearance
+                        </h2>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                Theme
+                            </div>
+                            <div class="settings-option-description">
+                                Choose how saturn looks to you. Select a theme that suits your style.
+                            </div>
+                            <div class="theme-options">
+                                <div class="theme-option active" data-theme="dark">
+                                    <div class="theme-preview dark">
+                                        <div class="theme-preview-header"></div>
+                                        <div class="theme-preview-body"></div>
+                                    </div>
+                                    <div class="theme-name">Dark</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-theme="school">
+                                    <div class="theme-preview school">
+                                        <div class="theme-preview-header"></div>
+                                        <div class="theme-preview-body"></div>
+                                    </div>
+                                    <div class="theme-name">School</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-theme="hacker">
+                                    <div class="theme-preview" style="background-color: #000000;">
+                                        <div class="theme-preview-header" style="background-color: #0a0a0a;"></div>
+                                        <div class="theme-preview-body" style="background-color: #000000; position: relative;">
+                                            <div style="position: absolute; top: 5px; left: 5px; right: 5px; font-size: 8px; color: #00FF00;">01001010</div>
+                                            <div style="position: absolute; top: 15px; left: 10px; right: 5px; font-size: 8px; color: #00FF00;">10101100</div>
+                                        </div>
+                                    </div>
+                                    <div class="theme-name">Hacker</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-theme="pink">
+                                    <div class="theme-preview" style="background-color: #1a0a14;">
+                                        <div class="theme-preview-header" style="background-color: #2d1324;"></div>
+                                        <div class="theme-preview-body" style="background-color: #1a0a14;"></div>
+                                    </div>
+                                    <div class="theme-name">Pink</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-theme="blue">
+                                    <div class="theme-preview" style="background-color: #0a1a2c;">
+                                        <div class="theme-preview-header" style="background-color: #0e2439;"></div>
+                                        <div class="theme-preview-body" style="background-color: #0a1a2c;"></div>
+                                    </div>
+                                    <div class="theme-name">Blue</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                School Mode
+                                <label class="switch">
+                                    <input type="checkbox" id="school-mode-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-option-description">
+                                Activates a school-friendly appearance. Game and app names will be replaced with educational terms.
+                            </div>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                Background Effects
+                            </div>
+                            <div class="settings-option-description">
+                                Choose a background particle effect for your experience.
+                            </div>
+                            <div class="theme-options" style="margin-top: 20px;">
+                                <div class="theme-option active" data-particle="default">
+                                    <div class="theme-preview" style="background-color: var(--bg-primary); position: relative;">
+                                        <div style="position: absolute; width: 3px; height: 3px; background: white; border-radius: 50%; top: 20px; left: 20px;"></div>
+                                        <div style="position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; top: 40px; left: 50px;"></div>
+                                        <div style="position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; top: 30px; left: 80px;"></div>
+                                    </div>
+                                    <div class="theme-name">Default</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-particle="snow">
+                                    <div class="theme-preview" style="background-color: var(--bg-primary); position: relative;">
+                                        <div style="position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; top: 10px; left: 20px;"></div>
+                                        <div style="position: absolute; width: 5px; height: 5px; background: white; border-radius: 50%; top: 30px; left: 50px;"></div>
+                                        <div style="position: absolute; width: 3px; height: 3px; background: white; border-radius: 50%; top: 20px; left: 80px;"></div>
+                                        <div style="position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; top: 40px; left: 30px;"></div>
+                                    </div>
+                                    <div class="theme-name">Snow</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-particle="rain">
+                                    <div class="theme-preview" style="background-color: var(--bg-primary); position: relative;">
+                                        <div style="position: absolute; width: 1px; height: 10px; background: #99CCFF; top: 10px; left: 20px; transform: rotate(20deg);"></div>
+                                        <div style="position: absolute; width: 1px; height: 15px; background: #99CCFF; top: 20px; left: 50px; transform: rotate(20deg);"></div>
+                                        <div style="position: absolute; width: 1px; height: 12px; background: #99CCFF; top: 15px; left: 80px; transform: rotate(20deg);"></div>
+                                    </div>
+                                    <div class="theme-name">Rain</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-particle="matrix">
+                                    <div class="theme-preview" style="background-color: #000; position: relative;">
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 10px; left: 10px;">1</div>
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 20px; left: 20px;">0</div>
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 30px; left: 30px;">1</div>
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 40px; left: 40px;">0</div>
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 10px; left: 50px;">1</div>
+                                        <div style="position: absolute; font-size: 8px; color: #00FF00; top: 20px; left: 60px;">0</div>
+                                    </div>
+                                    <div class="theme-name">Matrix</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-particle="fog">
+                                    <div class="theme-preview" style="background-color: var(--bg-primary); position: relative; overflow: hidden;">
+                                        <div style="position: absolute; width: 100px; height: 30px; background: rgba(255,255,255,0.1); border-radius: 50%; top: 10px; left: -20px;"></div>
+                                        <div style="position: absolute; width: 80px; height: 20px; background: rgba(255,255,255,0.1); border-radius: 50%; top: 30px; left: 30px;"></div>
+                                    </div>
+                                    <div class="theme-name">Fog</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                                <div class="theme-option" data-particle="none">
+                                    <div class="theme-preview" style="background-color: var(--bg-primary);"></div>
+                                    <div class="theme-name">None</div>
+                                    <div class="theme-check"><i class="fas fa-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Privacy Section -->
+                    <div class="settings-section" id="privacy-section">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-user-secret"></i> Privacy
+                        </h2>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                Tab Cloaking
+                                <label class="switch">
+                                    <input type="checkbox" id="tab-cloak-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-option-description">
+                                Changes the page title and favicon to appear as an educational website.
+                            </div>
+                            
+                            <div id="cloak-options" style="display: none;">
+                                <div class="form-group">
+                                    <label class="form-label">Preset Disguises</label>
+                                    <select id="cloak-preset" class="form-control" style="margin-bottom: 15px;">
+                                        <option value="google">Google Classroom</option>
+                                        <option value="khan">Khan Academy</option>
+                                        <option value="desmos">Desmos Calculator</option>
+                                        <option value="canvas">Canvas LMS</option>
+                                        <option value="docs">Google Docs</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="cloak-title">Page Title</label>
+                                    <input type="text" id="cloak-title" class="form-control" value="Google Classroom - Your classes">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Favicon</label>
+                                    <div class="favicon-options" style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                                        <div class="favicon-option active" data-favicon="https://www.google.com/favicon.ico">
+                                            <img src="https://www.google.com/favicon.ico" alt="Google" style="width: 32px; height: 32px;">
+                                        </div>
+                                        <div class="favicon-option" data-favicon="https://www.khanacademy.org/favicon.ico">
+                                            <img src="https://www.khanacademy.org/favicon.ico" alt="Khan Academy" style="width: 32px; height: 32px;">
+                                        </div>
+                                        <div class="favicon-option" data-favicon="https://www.desmos.com/favicon.ico">
+                                            <img src="https://www.desmos.com/favicon.ico" alt="Desmos" style="width: 32px; height: 32px;">
+                                        </div>
+                                        <div class="favicon-option" data-favicon="https://canvas.instructure.com/favicon.ico">
+                                            <img src="https://canvas.instructure.com/favicon.ico" alt="Canvas" style="width: 32px; height: 32px;">
+                                        </div>
+                                        <div class="favicon-option" data-favicon="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+                                            <img src="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" alt="Google Docs" style="width: 32px; height: 32px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button id="save-cloak-settings" class="btn">Save Changes</button>
+                                    <button id="test-cloak" class="btn">Test Cloak</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                Incognito Mode
+                                <label class="switch">
+                                    <input type="checkbox" id="incognito-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-option-description">
+                                When enabled, your browsing history within saturn won't be saved.
+                            </div>
+                            <div class="incognito-toggle" id="incognito-status">
+                                <div class="incognito-icon">
+                                    <i class="fas fa-user-secret"></i>
+                                </div>
+                                <div class="incognito-text">
+                                    Incognito mode is <span id="incognito-state">disabled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- History Section -->
+                    <div class="settings-section" id="history-section">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-history"></i> History
+                        </h2>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                Browsing History
+                                <button id="clear-history" class="btn">Clear History</button>
+                            </div>
+                            <div class="settings-option-description">
+                                View and manage your browsing history within saturn.
+                            </div>
+                            
+                            <div id="history-list">
+                                <!-- History items will be populated here via JavaScript -->
+                                <div class="empty-history">
+                                    <i class="fas fa-history" style="font-size: 3rem; color: var(--text-tertiary); margin-bottom: 20px;"></i>
+                                    <h3>No history yet</h3>
+                                    <p>Your browsing history will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- About Section -->
+                    <div class="settings-section" id="about-section">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-info-circle"></i> About
+                        </h2>
+                        
+                        <div class="settings-option">
+                            <div class="settings-option-title">
+                                About saturn
+                            </div>
+                            <div class="settings-option-description">
+                                saturn is an unblocked games and apps platform designed to provide access to entertainment and productivity tools without restrictions.
+                            </div>
+                            
+                            <div style="margin-top: 20px;">
+                                <p><strong>Version:</strong> 1.0.0</p>
+                                <p><strong>Last Updated:</strong> <span id="last-updated">August 2025</span></p>
+                                <p><strong>Features:</strong></p>
+                                <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                    <li>Unblocked Games Collection</li>
+                                    <li>Useful Apps Access</li>
+                                    <li>School Mode for Discretion</li>
+                                    <li>Tab Cloaking</li>
+                                    <li>History Management</li>
+                                    <li>Incognito Mode</li>
+                                    <li>Responsive Design for All Devices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-planet-ringed"></i>
+                        <span class="site-name">saturn</span>
+                    </a>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="games.html">Games</a>
+                    <a href="apps.html">Apps</a>
+                    <a href="search.html">Search</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="account.html">Account</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="current-year">2025</span> saturn. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('last-updated').textContent = new Date().toLocaleString('default', { month: 'long', year: 'numeric' });
+        
+        // Settings functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            const navItems = document.querySelectorAll('.settings-nav-item');
+            const sections = document.querySelectorAll('.settings-section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const sectionId = this.dataset.section;
+                    
+                    // Update active nav item
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected section
+                    sections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(`${sectionId}-section`).classList.add('active');
+                });
+            });
+            
+            // Theme selection
+            const themeOptions = document.querySelectorAll('.theme-option');
+            
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const theme = this.dataset.theme;
+                    
+                    // Update active theme
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Apply theme
+                    setTheme(theme);
+                });
+            });
+            
+            // School mode toggle
+            const schoolModeToggle = document.getElementById('school-mode-toggle');
+            
+            schoolModeToggle.addEventListener('change', function() {
+                toggleSchoolMode(this.checked);
+                
+                // If school mode is enabled, also enable the school theme
+                if (this.checked) {
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    document.querySelector('.theme-option[data-theme="school"]').classList.add('active');
+                } else {
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    document.querySelector('.theme-option[data-theme="dark"]').classList.add('active');
+                }
+            });
+            
+            // Tab cloak toggle
+            const tabCloakToggle = document.getElementById('tab-cloak-toggle');
+            const cloakOptions = document.getElementById('cloak-options');
+            
+            tabCloakToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    cloakOptions.style.display = 'block';
+                } else {
+                    cloakOptions.style.display = 'none';
+                    toggleTabCloak(false);
+                }
+            });
+            
+            // Favicon selection
+            const faviconOptions = document.querySelectorAll('.favicon-option');
+            
+            faviconOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    faviconOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Save cloak settings
+            const saveCloakSettings = document.getElementById('save-cloak-settings');
+            
+            saveCloakSettings.addEventListener('click', function() {
+                const title = document.getElementById('cloak-title').value || 'Math Practice - Educational Resources';
+                const favicon = document.querySelector('.favicon-option.active').dataset.favicon;
+                
+                toggleTabCloak(true, title, favicon);
+                alert('Tab cloak settings saved!');
+            });
+            
+            // Test cloak
+            const testCloak = document.getElementById('test-cloak');
+            
+            testCloak.addEventListener('click', function() {
+                const title = document.getElementById('cloak-title').value || 'Math Practice - Educational Resources';
+                const favicon = document.querySelector('.favicon-option.active').dataset.favicon;
+                
+                // Temporarily apply cloak
+                document.title = title;
+                const faviconEl = document.querySelector('link[rel="icon"]');
+                if (faviconEl) {
+                    faviconEl.href = favicon;
+                } else {
+                    const newFavicon = document.createElement('link');
+                    newFavicon.rel = 'icon';
+                    newFavicon.href = favicon;
+                    document.head.appendChild(newFavicon);
+                }
+                
+                // Restore after 3 seconds
+                setTimeout(() => {
+                    document.title = 'Settings - saturn';
+                    if (faviconEl) {
+                        faviconEl.href = '../images/favicon.png';
+                    }
+                }, 3000);
+                
+                alert('Tab cloak applied for 3 seconds as a test');
+            });
+            
+            // Incognito mode toggle
+            const incognitoToggle = document.getElementById('incognito-toggle');
+            const incognitoState = document.getElementById('incognito-state');
+            const incognitoStatus = document.getElementById('incognito-status');
+            
+            incognitoToggle.addEventListener('change', function() {
+                toggleIncognitoMode(this.checked);
+                
+                if (this.checked) {
+                    incognitoState.textContent = 'enabled';
+                    incognitoStatus.classList.add('incognito-active');
+                } else {
+                    incognitoState.textContent = 'disabled';
+                    incognitoStatus.classList.remove('incognito-active');
+                }
+            });
+            
+            // Clear history
+            const clearHistoryBtn = document.getElementById('clear-history');
+            
+            clearHistoryBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear your browsing history?')) {
+                    clearHistory();
+                    updateHistoryDisplay();
+                    alert('History cleared successfully!');
+                }
+            });
+            
+            // Load initial settings
+            loadInitialSettings();
+            updateHistoryDisplay();
+        });
+        
+        // Load initial settings from localStorage
+        function loadInitialSettings() {
+            const settings = getSettings();
+            
+            // Apply theme
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.theme === settings.theme) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Apply school mode
+            document.getElementById('school-mode-toggle').checked = settings.schoolMode;
+            
+            // Apply tab cloak
+            const tabCloakToggle = document.getElementById('tab-cloak-toggle');
+            tabCloakToggle.checked = settings.tabCloak.enabled;
+            
+            if (settings.tabCloak.enabled) {
+                document.getElementById('cloak-options').style.display = 'block';
+                document.getElementById('cloak-title').value = settings.tabCloak.title;
+                
+                // Select the matching favicon option
+                document.querySelectorAll('.favicon-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.dataset.favicon === settings.tabCloak.favicon) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+            
+            // Apply incognito mode
+            const incognitoToggle = document.getElementById('incognito-toggle');
+            const incognitoState = document.getElementById('incognito-state');
+            const incognitoStatus = document.getElementById('incognito-status');
+            
+            incognitoToggle.checked = settings.incognitoMode;
+            
+            if (settings.incognitoMode) {
+                incognitoState.textContent = 'enabled';
+                incognitoStatus.classList.add('incognito-active');
+            } else {
+                incognitoState.textContent = 'disabled';
+                incognitoStatus.classList.remove('incognito-active');
+            }
+        }
+        
+        // Update history display
+        function updateHistoryDisplay() {
+            const historyList = document.getElementById('history-list');
+            const settings = getSettings();
+            const history = settings.history;
+            
+            if (history.length === 0) {
+                historyList.innerHTML = `
+                    <div class="empty-history">
+                        <i class="fas fa-history" style="font-size: 3rem; color: var(--text-tertiary); margin-bottom: 20px;"></i>
+                        <h3>No history yet</h3>
+                        <p>Your browsing history will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let historyHTML = '';
+            
+            history.forEach((item, index) => {
+                const date = new Date(item.timestamp);
+                const formattedDate = date.toLocaleString();
+                
+                historyHTML += `
+                    <div class="history-item">
+                        <div class="history-item-info">
+                            <div class="history-item-title">${item.name}</div>
+                            <div class="history-item-meta">
+                                ${item.type === 'game' ? 'Game' : 'App'} • ${formattedDate}
+                            </div>
+                        </div>
+                        <div class="history-item-actions">
+                            <button class="history-item-action" onclick="launchItem('${item.type}', '${item.id}', '${item.name}', '${item.url}')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                            <button class="history-item-action" onclick="removeHistoryItem(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            historyList.innerHTML = historyHTML;
+        }
+        
+        // Remove history item
+        function removeHistoryItem(index) {
+            const settings = getSettings();
+            settings.history.splice(index, 1);
+            saveSettings(settings);
+            updateHistoryDisplay();
+        }
+    </script>
+    
+    <script>
+    
+    // Saturn Unblocked Games Website - Main JavaScript
+
+// DOM Elements
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
+    
+    // Apply saved settings
+    loadSettings();
+    
+    // Initialize animations
+    initAnimations();
+});
+
+// Settings Management
+const SETTINGS_KEY = 'saturn_settings';
+
+// Default settings
+const defaultSettings = {
+    theme: 'dark',
+    schoolMode: false,
+    particleEffect: 'default',
+    tabCloak: {
+        enabled: false,
+        title: 'Google Classroom - Your classes',
+        favicon: 'https://www.google.com/favicon.ico',
+        preset: 'google'
+    },
+    history: [],
+    incognitoMode: false,
+    notifications: [],
+    userProfile: {
+        username: '',
+        bio: '',
+        profilePicture: '',
+        banner: '',
+        pronouns: '',
+        stats: {
+            gamesPlayed: 0,
+            hoursPlayed: 0,
+            visits: 0,
+            lastVisit: null
+        }
+    }
+};
+
+// Get current settings
+function getSettings() {
+    const savedSettings = localStorage.getItem(SETTINGS_KEY);
+    return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
+}
+
+// Save settings
+function saveSettings(settings) {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    loadSettings(); // Apply the settings immediately
+}
+
+// Load and apply settings
+function loadSettings() {
+    const settings = getSettings();
+    
+    // Apply theme
+    if (settings.theme === 'dark') {
+        document.body.classList.remove('school-mode');
+    } else if (settings.theme === 'school') {
+        document.body.classList.add('school-mode');
+    }
+    
+    // Apply tab cloak if enabled
+    if (settings.tabCloak.enabled) {
+        document.title = settings.tabCloak.title;
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+            favicon.href = settings.tabCloak.favicon;
+        } else {
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.href = settings.tabCloak.favicon;
+            document.head.appendChild(newFavicon);
+        }
+    }
+}
+
+// Update theme
+function setTheme(theme) {
+    const settings = getSettings();
+    settings.theme = theme;
+    saveSettings(settings);
+    
+    // Apply theme class
+    document.body.classList.remove('school-mode', 'hacker-mode', 'pink-mode', 'blue-mode');
+    
+    if (theme === 'school') {
+        document.body.classList.add('school-mode');
+    } else if (theme === 'hacker') {
+        document.body.classList.add('hacker-mode');
+    } else if (theme === 'pink') {
+        document.body.classList.add('pink-mode');
+    } else if (theme === 'blue') {
+        document.body.classList.add('blue-mode');
+    }
+}
+
+// Set particle effect
+function setParticleEffect(effect) {
+    const settings = getSettings();
+    settings.particleEffect = effect;
+    saveSettings(settings);
+    
+    // Apply particle effect (this would be implemented in the homepage)
+    // This is a placeholder for the actual implementation
+    console.log(`Particle effect set to: ${effect}`);
+}
+
+// Toggle school mode
+function toggleSchoolMode(enabled) {
+    const settings = getSettings();
+    settings.schoolMode = enabled;
+    settings.theme = enabled ? 'school' : 'dark';
+    saveSettings(settings);
+    
+    // Update UI elements for school mode
+    if (enabled) {
+        // Change site name
+        document.querySelectorAll('.site-name').forEach(el => {
+            el.dataset.originalText = el.textContent;
+            el.textContent = 'School Learning';
+        });
+        
+        // Change game/app titles to educational names
+        document.querySelectorAll('.game-title, .app-title').forEach(el => {
+            el.dataset.originalText = el.textContent;
+            
+            // Map specific games to specific educational names
+            const educationalNames = {
+                'Slope': 'Geometry Angles',
+                '2048': 'Math Blocks',
+                'Subway Surfers': 'Speed Reading',
+                'Minecraft': 'Creative Building',
+                'Among Us': 'Group Studies',
+                'Fortnite': 'Geography Explorer',
+                'Cookie Clicker': 'Math Counter',
+                'Geometry Dash': 'Rhythm Mathematics',
+                'Run 3': 'Physics Runner',
+                'Happy Wheels': 'Biology Simulator',
+                'Flappy Bird': 'Gravity Studies',
+                'Tetris': 'Spatial Reasoning',
+                'Discord': 'Study Groups',
+                'YouTube': 'Educational Videos',
+                'Netflix': 'Documentary Hub',
+                'Spotify': 'Focus Music',
+                'Twitch': 'Live Lectures',
+                'Reddit': 'Research Forum',
+                'TikTok': 'Quick Lessons',
+                'Instagram': 'Visual Learning',
+                'Google Docs': 'Assignment Writer',
+                'ChatGPT': 'Homework Helper',
+                'Coolmath Games': 'Math Practice',
+                'Khan Academy': 'Learning Portal'
+            };
+            
+            if (educationalNames[el.textContent]) {
+                el.textContent = educationalNames[el.textContent];
+            } else {
+                el.textContent = getEducationalName();
+            }
+        });
+        
+        // Change navigation menu items
+        document.querySelectorAll('.nav-link').forEach(el => {
+            if (el.textContent === 'Games') {
+                el.dataset.originalText = el.textContent;
+                el.textContent = 'Math';
+            } else if (el.textContent === 'Apps') {
+                el.dataset.originalText = el.textContent;
+                el.textContent = 'Science';
+            } else if (el.textContent === 'Search') {
+                el.dataset.originalText = el.textContent;
+                el.textContent = 'Research';
+            }
+        });
+        
+        // Change images to educational-looking images
+        document.querySelectorAll('.game-img, .app-img').forEach(img => {
+            img.dataset.originalSrc = img.src;
+            
+            // Array of educational images
+            const educationalImages = [
+                'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
+                'https://images.unsplash.com/photo-1509062522246-3755977927d7',
+                'https://images.unsplash.com/photo-1532012197267-da84d127e765',
+                'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
+                'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0',
+                'https://images.unsplash.com/photo-1516979187457-637abb4f9353',
+                'https://images.unsplash.com/photo-1588075592446-265fd1e6e76f',
+                'https://images.unsplash.com/photo-1544947950-fa07a98d237f',
+                'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
+                'https://images.unsplash.com/photo-1577896851231-70ef18881754'
+            ];
+            
+            // Assign a random educational image
+            const randomIndex = Math.floor(Math.random() * educationalImages.length);
+            img.src = educationalImages[randomIndex] + '?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60';
+        });
+        
+        // Change section titles
+        document.querySelectorAll('.section-title, .preview-title, .apps-title, .games-title').forEach(el => {
+            el.dataset.originalText = el.textContent;
+            
+            if (el.textContent.includes('Games')) {
+                el.textContent = el.textContent.replace('Games', 'Math Activities');
+            } else if (el.textContent.includes('Apps')) {
+                el.textContent = el.textContent.replace('Apps', 'Learning Tools');
+            } else if (el.textContent.includes('Featured')) {
+                el.textContent = 'Recommended Resources';
+            } else if (el.textContent.includes('Popular')) {
+                el.textContent = 'Top Learning Activities';
+            }
+        });
+        
+        // Change button text
+        document.querySelectorAll('.btn, .btn-primary, .btn-secondary, .play-btn, .launch-btn').forEach(el => {
+            el.dataset.originalText = el.textContent;
+            
+            if (el.textContent.includes('Play')) {
+                el.textContent = el.textContent.replace('Play', 'Start');
+            } else if (el.textContent.includes('Launch')) {
+                el.textContent = el.textContent.replace('Launch', 'Open');
+            } else if (el.textContent.includes('Games')) {
+                el.textContent = el.textContent.replace('Games', 'Activities');
+            } else if (el.textContent.includes('Apps')) {
+                el.textContent = el.textContent.replace('Apps', 'Tools');
+            }
+        });
+        
+    } else {
+        // Restore original site name
+        document.querySelectorAll('.site-name').forEach(el => {
+            if (el.dataset.originalText) {
+                el.textContent = el.dataset.originalText;
+            } else {
+                el.textContent = 'saturn';
+            }
+        });
+        
+        // Restore original game/app titles
+        document.querySelectorAll('.game-title, .app-title').forEach(el => {
+            if (el.dataset.originalText) {
+                el.textContent = el.dataset.originalText;
+            }
+        });
+        
+        // Restore original navigation menu items
+        document.querySelectorAll('.nav-link').forEach(el => {
+            if (el.dataset.originalText) {
+                el.textContent = el.dataset.originalText;
+            }
+        });
+        
+        // Restore original images
+        document.querySelectorAll('.game-img, .app-img').forEach(img => {
+            if (img.dataset.originalSrc) {
+                img.src = img.dataset.originalSrc;
+            }
+        });
+        
+        // Restore original section titles
+        document.querySelectorAll('.section-title, .preview-title, .apps-title, .games-title').forEach(el => {
+            if (el.dataset.originalText) {
+                el.textContent = el.dataset.originalText;
+            }
+        });
+        
+        // Restore original button text
+        document.querySelectorAll('.btn, .btn-primary, .btn-secondary, .play-btn, .launch-btn').forEach(el => {
+            if (el.dataset.originalText) {
+                el.textContent = el.dataset.originalText;
+            }
+        });
+    }
+}
+
+// Toggle tab cloak
+function toggleTabCloak(enabled, title, favicon) {
+    const settings = getSettings();
+    settings.tabCloak.enabled = enabled;
+    
+    if (title) settings.tabCloak.title = title;
+    if (favicon) settings.tabCloak.favicon = favicon;
+    
+    saveSettings(settings);
+}
+
+// Add to history
+function addToHistory(item) {
+    if (getSettings().incognitoMode) return; // Don't save in incognito mode
+    
+    const settings = getSettings();
+    settings.history.unshift({
+        ...item,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Limit history to 100 items
+    if (settings.history.length > 100) {
+        settings.history.pop();
+    }
+    
+    saveSettings(settings);
+}
+
+// Clear history
+function clearHistory() {
+    const settings = getSettings();
+    settings.history = [];
+    saveSettings(settings);
+}
+
+// Toggle incognito mode
+function toggleIncognitoMode(enabled) {
+    const settings = getSettings();
+    settings.incognitoMode = enabled;
+    saveSettings(settings);
+}
+
+// Launch game or app
+function launchItem(type, id, name, url) {
+    // Add to history if not in incognito mode
+    addToHistory({
+        type: type,
+        id: id,
+        name: name,
+        url: url
+    });
+    
+    // Open in new window or redirect
+    window.open(url, '_blank');
+}
+
+// Animation functions
+function initAnimations() {
+    // Animate elements with data-animation attribute
+    const animatedElements = document.querySelectorAll('[data-animation]');
+    
+    animatedElements.forEach((element, index) => {
+        const animation = element.dataset.animation;
+        const delay = element.dataset.delay || index * 0.1;
+        
+        element.style.opacity = '0';
+        
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.classList.add(animation);
+        }, delay * 1000);
+    });
+    
+    // Initialize scroll animations
+    initScrollAnimations();
+}
+
+function initScrollAnimations() {
+    const scrollElements = document.querySelectorAll('[data-scroll-animation]');
+    
+    const elementInView = (el, percentageScroll = 100) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= 
+            (window.innerHeight || document.documentElement.clientHeight) * (percentageScroll/100)
+        );
+    };
+    
+    const displayScrollElement = (element) => {
+        const animation = element.dataset.scrollAnimation;
+        element.classList.add(animation);
+    };
+    
+    const hideScrollElement = (element) => {
+        const animation = element.dataset.scrollAnimation;
+        element.classList.remove(animation);
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 80)) {
+                displayScrollElement(el);
+            } else {
+                hideScrollElement(el);
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+    
+    // Initial check
+    handleScrollAnimation();
+}
+
+// Helper functions
+function getEducationalName() {
+    const educationalNames = [
+        'Math Practice',
+        'Science Explorer',
+        'History Facts',
+        'Grammar Exercise',
+        'Geography Quiz',
+        'Vocabulary Builder',
+        'Physics Simulator',
+        'Chemistry Lab',
+        'Biology Study',
+        'Literature Analysis',
+        'Algebra Helper',
+        'Geometry Shapes',
+        'Calculus Concepts',
+        'Scientific Method',
+        'Periodic Table',
+        'Cell Biology',
+        'Ecosystem Study',
+        'World History',
+        'American Revolution',
+        'Ancient Civilizations',
+        'Grammar Rules',
+        'Essay Writing',
+        'Reading Comprehension',
+        'Spelling Practice',
+        'Vocabulary Quiz',
+        'Language Arts',
+        'Spanish Learning',
+        'French Vocabulary',
+        'Music Theory',
+        'Art History',
+        'Physical Education',
+        'Health Science',
+        'Computer Programming',
+        'Digital Literacy',
+        'Research Methods',
+        'Study Skills',
+        'Test Preparation',
+        'Critical Thinking',
+        'Problem Solving',
+        'Creative Writing'
+    ];
+    
+    return educationalNames[Math.floor(Math.random() * educationalNames.length)];
+}
+
+</script>
+
+</body>
+</html>
