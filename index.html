@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>saturn - unblocked games</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
 
-    <style>
+        <style>
 
         /* Saturn Unblocked Games Website - Main Stylesheet */
 
@@ -423,17 +425,15 @@ footer {
     height: 150px;
   }
 }
-        </style> 
-    
+
+/* Make everything lowercase */
+* {
+    text-transform: lowercase;
+}
+        </style>
+
     <style>
-        /* Make everything lowercase */
-        * {
-            text-transform: lowercase;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
+        
         /* Homepage specific styles */
         .hero {
             position: relative;
@@ -558,132 +558,6 @@ footer {
             line-height: 1.6;
         }
         
-        .games-preview {
-            padding: 60px 0;
-            background-color: var(--bg-tertiary);
-            border-radius: var(--radius-lg);
-            margin: 40px 0;
-        }
-        
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .preview-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-tertiary);
-        }
-        
-        .preview-link {
-            color: var(--accent-tertiary);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: var(--transition);
-        }
-        
-        .preview-link:hover {
-            color: var(--text-primary);
-        }
-        
-        .game-card {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(210, 180, 140, 0.4);
-        }
-        
-        .game-card:hover .game-img {
-            filter: brightness(1.1);
-        }
-        
-        .game-card:hover .game-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(210, 180, 140, 0.2), transparent);
-        }
-        
-        .game-card:hover .game-title {
-            text-shadow: 0 0 10px rgba(210, 180, 140, 0.7);
-        }
-        
-        .game-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        
-        .game-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            padding: 20px;
-            color: var(--text-primary);
-        }
-        
-        .game-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            background-color: var(--accent-primary);
-            color: var(--text-primary);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .game-card:hover .play-btn {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-        
-        .cta-section {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border-radius: var(--radius-lg);
-            margin: 40px 0;
-        }
-        
-        .cta-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--accent-tertiary);
-        }
-        
-        .cta-description {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
@@ -734,22 +608,18 @@ footer {
             .feature-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .cta-title {
-                font-size: 2rem;
-            }
         }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+    <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="https://logo-icons.com/cdn/shop/files/1126-logo-1713386413.986.svg?v=1713403311" alt="Saturn" style="height: 24px; margin-right: 8px;">
+                <img src="images/favicon.png" alt="Saturn" style="height: 24px; margin-right: 8px;">
                 <span class="site-name">saturn</span>
             </a>
             
@@ -761,11 +631,10 @@ footer {
             
             <nav class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="pages/games.html" class="nav-link">Games</a>
-                <a href="pages/apps.html" class="nav-link">Apps</a>
-                <a href="pages/search.html" class="nav-link">Search</a>
-                <a href="pages/settings.html" class="nav-link">Settings</a>
-                <a href="pages/account.html" class="nav-link">Account</a>
+                <a href="g.html" class="nav-link">Games</a>
+                <a href="a.html" class="nav-link">Apps</a>
+                <a href="search.html" class="nav-link">Search</a>
+                <a href="s.html" class="nav-link">Settings</a>
             </nav>
         </div>
     </header>
@@ -774,15 +643,14 @@ footer {
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <canvas id="particles" class="particles"></canvas>
             <div class="hero-content">
                 <h1 class="hero-title" data-animation="fade-in">Welcome to saturn</h1>
                 <p class="hero-subtitle" data-animation="slide-up" data-delay="0.3">Your ultimate destination for unblocked games and apps</p>
                 <div class="hero-buttons">
-                    <a href="pages/games.html" class="btn-primary" data-animation="slide-up" data-delay="0.6">
+                    <a href="g.html" class="btn-primary" data-animation="slide-up" data-delay="0.6">
                         <i class="fas fa-gamepad"></i> Play Games
                     </a>
-                    <a href="pages/apps.html" class="btn-secondary" data-animation="slide-up" data-delay="0.9">
+                    <a href="a.html" class="btn-secondary" data-animation="slide-up" data-delay="0.9">
                         <i class="fas fa-rocket"></i> Explore Apps
                     </a>
                 </div>
@@ -829,130 +697,6 @@ footer {
                 </div>
             </div>
         </section>
-        
-        <!-- Games Preview Section -->
-        <section class="container games-preview text-center" data-scroll-animation="fade-in">
-            <div class="preview-header" style="display: flex; justify-content: center; margin-bottom: 30px;">
-                <h2 class="preview-title">Popular Games</h2>
-            </div>
-            
-            <div class="grid" style="max-width: 1000px; margin: 0 auto;">
-                <div class="game-card" data-scroll-animation="slide-up">
-                    <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Game 1" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Slope</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('game', '1', 'Slope', 'pages/games/slope.html')">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.2">
-                    <img src="https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Game 2" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">2048</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('game', '2', '2048', 'pages/games/2048.html')">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.4">
-                    <img src="https://images.unsplash.com/photo-1614294149010-950b698f72c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Game 3" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Subway Surfers</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('game', '3', 'Subway Surfers', 'pages/games/subway-surfers.html')">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.6">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Game 4" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Minecraft</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('game', '4', 'Minecraft', 'pages/games/minecraft.html')">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div style="margin-top: 20px;">
-                <a href="pages/games.html" class="btn-secondary">
-                    View All Games <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-        
-        <!-- Apps Preview Section -->
-        <section class="container games-preview text-center" data-scroll-animation="fade-in">
-            <div class="preview-header" style="display: flex; justify-content: center; margin-bottom: 30px;">
-                <h2 class="preview-title">Featured Apps</h2>
-            </div>
-            
-            <div class="grid" style="max-width: 1000px; margin: 0 auto;">
-                <div class="game-card" data-scroll-animation="slide-up">
-                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="App 1" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Discord</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('app', '1', 'Discord', 'https://discord.com/app')">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.2">
-                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="App 2" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">YouTube</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('app', '2', 'YouTube', 'https://youtube.com')">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.4">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="App 3" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Netflix</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('app', '3', 'Netflix', 'https://netflix.com')">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-                
-                <div class="game-card" data-scroll-animation="slide-up" data-delay="0.6">
-                    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="App 4" class="game-img">
-                    <div class="game-overlay">
-                        <h3 class="game-title">Spotify</h3>
-                    </div>
-                    <a href="#" class="play-btn" onclick="launchItem('app', '4', 'Spotify', 'https://open.spotify.com')">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div style="margin-top: 20px;">
-                <a href="pages/apps.html" class="btn-secondary">
-                    View All Apps <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-        
-        <!-- CTA Section -->
-        <section class="container cta-section" data-scroll-animation="fade-in">
-            <h2 class="cta-title">Ready to Play?</h2>
-            <p class="cta-description">Jump into our collection of games and apps now. No restrictions, no limits - just pure entertainment.</p>
-            <div class="hero-buttons">
-                <a href="pages/games.html" class="btn-primary bounce">
-                    <i class="fas fa-gamepad"></i> Start Playing
-                </a>
-                <a href="pages/settings.html" class="btn-secondary">
-                    <i class="fas fa-cog"></i> Customize Experience
-                </a>
-            </div>
-        </section>
     </main>
     
     <!-- Footer -->
@@ -961,18 +705,17 @@ footer {
             <div class="footer-content">
                 <div class="footer-logo">
                     <a href="index.html" class="logo">
-                        <i class="fas fa-planet-ringed"></i>
+                        <img src="images/favicon.png" alt="Saturn" style="height: 24px; margin-right: 8px;">
                         <span class="site-name">saturn</span>
                     </a>
                 </div>
                 
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="pages/games.html">Games</a>
-                    <a href="pages/apps.html">Apps</a>
-                    <a href="pages/search.html">Search</a>
-                    <a href="pages/settings.html">Settings</a>
-                    <a href="pages/account.html">Account</a>
+                    <a href="g.html">Games</a>
+                    <a href="a.html">Apps</a>
+                    <a href="search.html">Search</a>
+                    <a href="s.html">Settings</a>
                 </div>
             </div>
             
@@ -987,103 +730,6 @@ footer {
     <script>
         // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Particle animation for hero section
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('particles');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = window.innerWidth;
-            canvas.height = 500;
-            
-            const particlesArray = [];
-            const numberOfParticles = 100;
-            
-            // Resize event
-            window.addEventListener('resize', function() {
-                canvas.width = window.innerWidth;
-                canvas.height = 500;
-            });
-            
-            // Create particle class
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 5 + 1;
-                    this.speedX = Math.random() * 3 - 1.5;
-                    this.speedY = Math.random() * 3 - 1.5;
-                    this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
-                }
-                
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    
-                    if (this.size > 0.2) this.size -= 0.01;
-                    
-                    if (this.x < 0 || this.x > canvas.width) {
-                        this.speedX = -this.speedX;
-                    }
-                    
-                    if (this.y < 0 || this.y > canvas.height) {
-                        this.speedY = -this.speedY;
-                    }
-                }
-                
-                draw() {
-                    ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-            
-            // Initialize particles
-            function init() {
-                for (let i = 0; i < numberOfParticles; i++) {
-                    particlesArray.push(new Particle());
-                }
-            }
-            
-            // Animation loop
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                for (let i = 0; i < particlesArray.length; i++) {
-                    particlesArray[i].update();
-                    particlesArray[i].draw();
-                    
-                    // Connect particles with lines
-                    for (let j = i; j < particlesArray.length; j++) {
-                        const dx = particlesArray[i].x - particlesArray[j].x;
-                        const dy = particlesArray[i].y - particlesArray[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance/100})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                    
-                    // Replace particles
-                    if (particlesArray[i].size <= 0.2) {
-                        particlesArray.splice(i, 1);
-                        i--;
-                        particlesArray.push(new Particle());
-                    }
-                }
-                
-                requestAnimationFrame(animate);
-            }
-            
-            init();
-            animate();
-        });
     </script>
 
     <script>
@@ -1131,13 +777,7 @@ const defaultSettings = {
         bio: '',
         profilePicture: '',
         banner: '',
-        pronouns: '',
-        stats: {
-            gamesPlayed: 0,
-            hoursPlayed: 0,
-            visits: 0,
-            lastVisit: null
-        }
+        pronouns: ''
     }
 };
 
@@ -1159,9 +799,19 @@ function loadSettings() {
     
     // Apply theme
     if (settings.theme === 'dark') {
-        document.body.classList.remove('school-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'pink-mode', 'blue-mode');
     } else if (settings.theme === 'school') {
         document.body.classList.add('school-mode');
+        document.body.classList.remove('hacker-mode', 'pink-mode', 'blue-mode');
+    } else if (settings.theme === 'hacker') {
+        document.body.classList.add('hacker-mode');
+        document.body.classList.remove('school-mode', 'pink-mode', 'blue-mode');
+    } else if (settings.theme === 'pink') {
+        document.body.classList.add('pink-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'blue-mode');
+    } else if (settings.theme === 'blue') {
+        document.body.classList.add('blue-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'pink-mode');
     }
     
     // Apply tab cloak if enabled
@@ -1176,6 +826,11 @@ function loadSettings() {
             newFavicon.href = settings.tabCloak.favicon;
             document.head.appendChild(newFavicon);
         }
+    }
+    
+    // Apply particle effect
+    if (settings.particleEffect) {
+        applyParticleEffect(settings.particleEffect);
     }
 }
 
@@ -1542,6 +1197,7 @@ function getEducationalName() {
     
     return educationalNames[Math.floor(Math.random() * educationalNames.length)];
 }
+        
     </script>
 </body>
 </html>
