@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>apps - saturn</title>
-    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-    
-    /* Saturn Unblocked Games Website - Main Stylesheet */
+
+        /* Saturn Unblocked Games Website - Main Stylesheet */
 
 /* Import Inter font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -424,16 +425,11 @@ footer {
   }
 }
 
-</style>
-    <style>
-        /* Make everything lowercase */
-        * {
-            text-transform: lowercase;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
+/* Make everything lowercase */
+* {
+    text-transform: lowercase;
+}
+        
         /* Apps page specific styles */
         .apps-header {
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-primary) 100%);
@@ -567,27 +563,6 @@ footer {
             transform: translateY(-2px);
         }
         
-        .load-more {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .load-more-btn {
-            background-color: transparent;
-            border: 2px solid var(--accent-primary);
-            color: var(--text-primary);
-            padding: 12px 30px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .load-more-btn:hover {
-            background-color: var(--accent-primary);
-            color: var(--text-primary);
-        }
-        
         .no-results {
             text-align: center;
             padding: 40px;
@@ -624,14 +599,14 @@ footer {
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+    <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container nav-container">
-            <a href="../index.html" class="logo">
-                <img src="https://logo-icons.com/cdn/shop/files/1126-logo-1713386413.986.svg?v=1713403311" alt="Saturn" style="height: 24px; margin-right: 8px;">
+            <a href="index.html" class="logo">
+                <img src="images/favicon.png" alt="Saturn" style="height: 24px; margin-right: 8px;">
                 <span class="site-name">saturn</span>
             </a>
             
@@ -642,12 +617,11 @@ footer {
             </button>
             
             <nav class="nav-links">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="games.html" class="nav-link">Games</a>
-                <a href="apps.html" class="nav-link active">Apps</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="g.html" class="nav-link">Games</a>
+                <a href="a.html" class="nav-link active">Apps</a>
                 <a href="search.html" class="nav-link">Search</a>
-                <a href="settings.html" class="nav-link">Settings</a>
-                <a href="account.html" class="nav-link">Account</a>
+                <a href="s.html" class="nav-link">Settings</a>
             </nav>
         </div>
     </header>
@@ -847,8 +821,6 @@ footer {
                     <h3>No apps found</h3>
                     <p>Try a different search term or browse our categories.</p>
                 </div>
-                
-                <!-- No Load More Button -->
             </section>
         </div>
     </main>
@@ -858,19 +830,18 @@ footer {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="../index.html" class="logo">
-                        <i class="fas fa-planet-ringed"></i>
+                    <a href="index.html" class="logo">
+                        <img src="images/favicon.png" alt="Saturn" style="height: 24px; margin-right: 8px;">
                         <span class="site-name">saturn</span>
                     </a>
                 </div>
                 
                 <div class="footer-links">
-                    <a href="../index.html">Home</a>
-                    <a href="games.html">Games</a>
-                    <a href="apps.html">Apps</a>
+                    <a href="index.html">Home</a>
+                    <a href="g.html">Games</a>
+                    <a href="a.html">Apps</a>
                     <a href="search.html">Search</a>
-                    <a href="settings.html">Settings</a>
-                    <a href="account.html">Account</a>
+                    <a href="s.html">Settings</a>
                 </div>
             </div>
             
@@ -881,7 +852,7 @@ footer {
     </footer>
     
     <!-- Scripts -->
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
     <script>
         // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -892,33 +863,22 @@ footer {
             const appsGrid = document.getElementById('apps-grid');
             const appCards = document.querySelectorAll('.app-card');
             const noResults = document.getElementById('no-results');
-            const loadMoreBtn = document.getElementById('load-more-btn');
             
-            // Initially show only first 8 apps
-            const appsPerPage = 8;
-            let currentPage = 1;
-            
-            function updateAppDisplay() {
-                const maxAppsToShow = currentPage * appsPerPage;
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
                 let visibleCount = 0;
                 
-                appCards.forEach((card, index) => {
-                    if (card.style.display !== 'none') {
-                        if (index < maxAppsToShow) {
-                            card.style.display = 'block';
-                            visibleCount++;
-                        } else {
-                            card.style.display = 'none';
-                        }
+                appCards.forEach(card => {
+                    const appName = card.dataset.appName;
+                    
+                    if (appName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
                     }
                 });
-                
-                // Show/hide load more button
-                if (visibleCount < Array.from(appCards).filter(card => !card.dataset.filtered).length) {
-                    loadMoreBtn.style.display = 'inline-block';
-                } else {
-                    loadMoreBtn.style.display = 'none';
-                }
                 
                 // Show/hide no results message
                 if (visibleCount === 0) {
@@ -926,43 +886,10 @@ footer {
                 } else {
                     noResults.style.display = 'none';
                 }
-            }
-            
-            // Initialize display
-            updateAppDisplay();
-            
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                
-                appCards.forEach(card => {
-                    const appName = card.dataset.appName;
-                    
-                    if (appName.includes(searchTerm)) {
-                        card.dataset.filtered = false;
-                        card.style.display = 'block';
-                    } else {
-                        card.dataset.filtered = true;
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Reset pagination when searching
-                currentPage = 1;
-                updateAppDisplay();
-            });
-            
-            // Load more functionality
-            loadMoreBtn.addEventListener('click', function() {
-                currentPage++;
-                updateAppDisplay();
             });
         });
-    </script>
-    
-    <script>
-    
-    // Saturn Unblocked Games Website - Main JavaScript
+
+        // Saturn Unblocked Games Website - Main JavaScript
 
 // DOM Elements
 document.addEventListener('DOMContentLoaded', function() {
@@ -1005,13 +932,7 @@ const defaultSettings = {
         bio: '',
         profilePicture: '',
         banner: '',
-        pronouns: '',
-        stats: {
-            gamesPlayed: 0,
-            hoursPlayed: 0,
-            visits: 0,
-            lastVisit: null
-        }
+        pronouns: ''
     }
 };
 
@@ -1033,9 +954,19 @@ function loadSettings() {
     
     // Apply theme
     if (settings.theme === 'dark') {
-        document.body.classList.remove('school-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'pink-mode', 'blue-mode');
     } else if (settings.theme === 'school') {
         document.body.classList.add('school-mode');
+        document.body.classList.remove('hacker-mode', 'pink-mode', 'blue-mode');
+    } else if (settings.theme === 'hacker') {
+        document.body.classList.add('hacker-mode');
+        document.body.classList.remove('school-mode', 'pink-mode', 'blue-mode');
+    } else if (settings.theme === 'pink') {
+        document.body.classList.add('pink-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'blue-mode');
+    } else if (settings.theme === 'blue') {
+        document.body.classList.add('blue-mode');
+        document.body.classList.remove('school-mode', 'hacker-mode', 'pink-mode');
     }
     
     // Apply tab cloak if enabled
@@ -1050,6 +981,11 @@ function loadSettings() {
             newFavicon.href = settings.tabCloak.favicon;
             document.head.appendChild(newFavicon);
         }
+    }
+    
+    // Apply particle effect
+    if (settings.particleEffect) {
+        applyParticleEffect(settings.particleEffect);
     }
 }
 
@@ -1416,8 +1352,7 @@ function getEducationalName() {
     
     return educationalNames[Math.floor(Math.random() * educationalNames.length)];
 }
-
-</script>
-
+        
+    </script>
 </body>
 </html>
